@@ -1,10 +1,9 @@
 # Basically controls how your cloud server create a virtual machine.
 # This is a Dockerfile that defines the environment for a Docker container.
 
-FROM ubuntu:latest
+FROM python:3.10-slim
 
 RUN apt-get update && apt-get install -y \
-    python3.10 \
     python3-pip \
     git
 
@@ -16,4 +15,3 @@ COPY feed.py /usr/bin/feed.py
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-
